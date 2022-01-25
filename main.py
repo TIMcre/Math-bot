@@ -23,31 +23,21 @@ ibox = driver.find_element(By.CSS_SELECTOR,"#idxt1")
 # checkbox for alowing input
 abox = driver.find_element(By.XPATH,"/html/body/form/div[2]/div/div/div/div[3]/center/table/tbody/tr/td[1]/input")
 
-abox.click()
-gbox.click()
-sbox.click()
 
-# output box
-obox = driver.find_element(By.CSS_SELECTOR,"#MathOutput > font:nth-child(1)")
-# question field
-qbox = driver.find_element(By.CSS_SELECTOR,"#idz1")
+def get_data(driver, sbox, gbox):
+    # generate new question and answer
+    gbox.click()
+    sbox.click()
+    # question field
+    qbox = driver.find_element(By.CSS_SELECTOR,"#idz1")
+    # output box
+    obox = driver.find_element(By.CSS_SELECTOR,"#MathOutput > font:nth-child(1)")    
+    # get the data
+    question = qbox.get_attribute("value")
+    answer = obox.text
+    # return the data
+    return (question, answer)
 
-
-
-
-time.sleep(1)
-
-
-print(obox.text)
-
-
-print(qbox.get_attribute("value"))
-
-values = []
-
-values.append((obox.text,qbox.get_attribute("value")))
-
-
-
+print(get_data(driver, sbox, gbox))
 
 driver.quit
