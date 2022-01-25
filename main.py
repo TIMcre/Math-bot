@@ -4,7 +4,6 @@ import csv
 import time
 # inital setup
 driver = webdriver.Firefox(executable_path="C:\\Users\\Timon\\geckodriver.exe")
-driver.wait = WebDriverWait(driver, 5)
 
 
 driver.get("https://www.realmath.de/Neues/Klasse8/binome/binomevar03.php")
