@@ -35,6 +35,12 @@ def get_data(driver, sbox, gbox):
     # return the data
     return (question, answer)
 
+f = open("data.csv","a",newline = "")
+
+
+
+
+
 print(get_data(driver, sbox, gbox))
 
 driver.quit
