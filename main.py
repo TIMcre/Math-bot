@@ -35,12 +35,15 @@ def get_data(driver, sbox, gbox):
     # return the data
     return (question, answer)
 
-f = open("data.csv","a",newline = "")
+def write_data(data):
+    # open the csv file
+    f = open("data.csv","a",newline = "")
+    # create the writer
+    writer = csv.writer(f)
+    # write the data
+    writer.writerow(data)
+    # close the csv file
+    f.close()
 
-
-
-
-
-print(get_data(driver, sbox, gbox))
 
 driver.quit
