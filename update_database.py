@@ -8,14 +8,8 @@ driver.get("https://www.realmath.de/Neues/Klasse8/binome/binomevar03.php")
 
 # box to show the answer
 sbox = driver.find_element(By.CSS_SELECTOR,".hilfButton")
-# box to check the answer
-cbox = driver.find_element(By.CSS_SELECTOR,".pruefeButton")
 # box to make a new question
 gbox = driver.find_element(By.CSS_SELECTOR,".neuButton")
-# input field for answer
-ibox = driver.find_element(By.CSS_SELECTOR,"#idxt1")
-# checkbox for alowing input
-abox = driver.find_element(By.XPATH,"/html/body/form/div[2]/div/div/div/div[3]/center/table/tbody/tr/td[1]/input")
 
 def get_data(driver, sbox, gbox):
     # generate new question and answer
