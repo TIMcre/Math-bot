@@ -35,8 +35,15 @@ def write_data(data):
     # close the csv file
     f.close()
 
-for i in range(1000):
+for i in range(500):
     write_data(get_data(driver, sbox, gbox))
     print(i)
 
 driver.quit
+
+f = open("data.csv","r", encoding='utf-8').readlines()
+fs = set(f)
+
+for line in fs:
+    f.write(line)
+
