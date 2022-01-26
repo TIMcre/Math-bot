@@ -4,10 +4,7 @@ import csv
 import time
 # inital setup
 driver = webdriver.Firefox(executable_path="C:\\Users\\Timon\\geckodriver.exe")
-
-
 driver.get("https://www.realmath.de/Neues/Klasse8/binome/binomevar03.php")
-
 
 # box to show the answer
 sbox = driver.find_element(By.CSS_SELECTOR,".hilfButton")
@@ -19,7 +16,6 @@ gbox = driver.find_element(By.CSS_SELECTOR,".neuButton")
 ibox = driver.find_element(By.CSS_SELECTOR,"#idxt1")
 # checkbox for alowing input
 abox = driver.find_element(By.XPATH,"/html/body/form/div[2]/div/div/div/div[3]/center/table/tbody/tr/td[1]/input")
-
 
 def get_data(driver, sbox, gbox):
     # generate new question and answer
@@ -45,5 +41,8 @@ def write_data(data):
     # close the csv file
     f.close()
 
+for i in range(2):
+    write_data(get_data(driver, sbox, gbox))
+    print(i)
 
 driver.quit
