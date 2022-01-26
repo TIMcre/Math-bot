@@ -1,13 +1,25 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import csv
+import time
+
+# inital setup
+driver = webdriver.Firefox(executable_path="C:\\Users\\Timon\\geckodriver.exe")
+driver.get("https://www.realmath.de/Neues/Klasse8/binome/binomevar03.php")
+
+def get_answer(question):
+    f = csv.reader(open("data.csv", encoding='utf-8'))
+    for row in f:
+        if question == row[0]:
+            return row[1]
 
 
 
 
+print(get_answer("(x + 5)⋅(x - 5)"))
 
 
-
-
-
-
+print("done")
 
 
 
