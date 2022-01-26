@@ -13,6 +13,8 @@ abox.click()
 ibox = driver.find_element(By.CSS_SELECTOR,"#idxt1")
 # box to check the answer
 cbox = driver.find_element(By.CSS_SELECTOR,".pruefeButton")
+# box to make a new question
+gbox = driver.find_element(By.CSS_SELECTOR,".neuButton")
 
 def get_answer(question):
     f = csv.reader(open("data.csv", encoding='utf-8'))
@@ -28,8 +30,10 @@ def get_question(driver, gbox, qbox):
     question = qbox.get_attribute("value")
     return question
 
-def write_answer(driver, gbox, qbox, ibox, cbox):
+def task(driver, gbox, qbox, ibox, cbox):
     q = get_question(driver, gbox, qbox)
     a = get_answer(q)
     ibox.send_keys(a)
     cbox.click()
+
+task(driver, gbox, qbox, ibox, cbox)
