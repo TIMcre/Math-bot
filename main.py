@@ -15,6 +15,8 @@ ibox = driver.find_element(By.CSS_SELECTOR,"#idxt1")
 cbox = driver.find_element(By.CSS_SELECTOR,".pruefeButton")
 # box to make a new question
 gbox = driver.find_element(By.CSS_SELECTOR,".neuButton")
+# question field
+qbox = driver.find_element(By.CSS_SELECTOR,"#idz1")
 
 def get_answer(question):
     f = csv.reader(open("data.csv", encoding='utf-8'))
