@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import csv
 import time
-
+times = 10
 # inital setup
 driver = webdriver.Firefox(executable_path="C:\\Users\\Timon\\geckodriver.exe")
 driver.get("https://www.realmath.de/Neues/Klasse8/binome/binomevar03.php")
@@ -38,4 +38,5 @@ def task(driver, gbox, qbox, ibox, cbox):
     ibox.send_keys(a)
     cbox.click()
 
-task(driver, gbox, qbox, ibox, cbox)
+for _ in range(times):
+    task(driver, gbox, qbox, ibox, cbox)
