@@ -34,19 +34,13 @@ def write_data(data):
     writer.writerow(data)
     # close the csv file
     f.close()
-"""
-for i in range():
+
+for i in range(1000):
     write_data(get_data(driver, sbox, gbox))
     print(i)
-"""
+
 driver.quit
 
-def get_answer(question):
-    f = csv.reader(open("data.csv", encoding='utf-8'))
-    for row in f:
-        if question == row[0]:
-            return row
 
-print(get_answer("(x + 11)²")[1])
 
 
