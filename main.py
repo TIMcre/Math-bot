@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 import pandas as pd
 import csv
 import time
-times = int(1)
+times = 1
 # inital setup
 driver = webdriver.Firefox(executable_path="C:\\Users\\Timon\\geckodriver.exe")
 driver.get("https://www.realmath.de/Neues/Klasse8/binome/binomevar03.php")
