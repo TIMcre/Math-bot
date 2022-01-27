@@ -1,8 +1,9 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+import pandas as pd
 import csv
 import time
-times = int(input("how often? "))
+times = int(1)
 # inital setup
 driver = webdriver.Firefox(executable_path="C:\\Users\\Timon\\geckodriver.exe")
 driver.get("https://www.realmath.de/Neues/Klasse8/binome/binomevar03.php")
@@ -19,12 +20,9 @@ gbox = driver.find_element(By.CSS_SELECTOR,".neuButton")
 qbox = driver.find_element(By.CSS_SELECTOR,"#idz1")
 
 def get_answer(question):
-    f = csv.reader(open("data.csv", encoding='utf-8'))
-    for row in f:
-        if question == row[0]:
-            return row[1]
-    f.close()
-
+    df = pd.read_csv("data.csv")
+    print(df.query(question))
+    
 def get_question(driver, gbox, qbox):
     gbox.click()
     # question field
