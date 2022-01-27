@@ -1,10 +1,12 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+import pandas as pd
 import csv
 import time
 # inital setup
 driver = webdriver.Firefox(executable_path="C:\\Users\\Timon\\geckodriver.exe")
 driver.get("https://www.realmath.de/Neues/Klasse8/binome/binomevar03.php")
+df = pd.DataFrame(columns=("question", "answer"))
 
 # box to show the answer
 sbox = driver.find_element(By.CSS_SELECTOR,".hilfButton")
@@ -23,27 +25,15 @@ def get_data(driver, sbox, gbox):
     question = qbox.get_attribute("value")
     answer = obox.text
     # return the data
-    return (question, answer)
+    return question, answer
 
-def write_data(data):
-    # open the csv file
-    f = open("data.csv","a",newline = "", encoding='utf-8')
-    # create the writer
-    writer = csv.writer(f)
-    # write the data
-    writer.writerow(data)
-    # close the csv file
-    f.close()
+def add_data(data, df):
+    df.loc[len(df.index)] = data    
 
 for i in range(500):
-    write_data(get_data(driver, sbox, gbox))
+    add_data(get_data(driver, sbox, gbox), df)
     print(i)
 
 driver.quit
-
-f = open("data.csv","r", encoding='utf-8').readlines()
-fs = set(f)
-
-for line in fs:
-    f.write(line)
-
+df = df.drop_duplicates()
+df.to_csv("data.csv", encoding='utf8')
