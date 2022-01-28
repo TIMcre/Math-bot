@@ -20,7 +20,7 @@ gbox = driver.find_element(By.CSS_SELECTOR,".neuButton")
 qbox = driver.find_element(By.CSS_SELECTOR,"#idz1")
 
 def get_answer(question):
-    df = pd.read_csv("data.csv")
+    df = pd.read_csv("data.csv", encoding='utf8')
     print(df.query(question))
     
 def get_question(driver, gbox, qbox):
@@ -36,5 +36,6 @@ def task(driver, gbox, qbox, ibox, cbox):
     ibox.send_keys(a)
     cbox.click()
 
-for _ in range(times):
-    task(driver, gbox, qbox, ibox, cbox)
+task(driver, gbox, qbox, ibox, cbox)
+
+driver.quit()

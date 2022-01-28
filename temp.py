@@ -19,4 +19,5 @@ df.to_csv("data.csv")
 #print(locs)
 """
 df = pd.read_csv("data.csv", encoding='utf8')
-print(df["question"])
+question = "(x + 0,2)²"
+print(df.query(question))

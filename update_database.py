@@ -6,7 +6,7 @@ import time
 # inital setup
 driver = webdriver.Firefox(executable_path="C:\\Users\\Timon\\geckodriver.exe")
 driver.get("https://www.realmath.de/Neues/Klasse8/binome/binomevar03.php")
-df = pd.read_csv("data.csv")
+df = pd.read_csv("data.csv", encoding="utf8")
 
 # box to show the answer
 sbox = driver.find_element(By.CSS_SELECTOR,".hilfButton")
