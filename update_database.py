@@ -6,10 +6,8 @@ import time
 # inital setup
 driver = webdriver.Firefox(executable_path="C:\\Users\\Timon\\geckodriver.exe")
 driver.get("https://www.realmath.de/Neues/Klasse8/binome/binomevar03.php")
-
 df = pd.read_csv("data.csv")
 
-    
 # box to show the answer
 sbox = driver.find_element(By.CSS_SELECTOR,".hilfButton")
 # box to make a new question
@@ -32,7 +30,7 @@ def get_data(driver, sbox, gbox):
 def add_data(data, df):
     df.loc[len(df.index)] = data    
 
-for i in range(1000):
+for i in range(500):
     add_data(get_data(driver, sbox, gbox), df)
     print(i)
 
