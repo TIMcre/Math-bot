@@ -21,7 +21,7 @@ qbox = driver.find_element(By.CSS_SELECTOR,"#idz1")
 
 def get_answer(question):
     df = pd.read_csv("data.csv", encoding='utf8')
-    print(df.query(question))
+    return df.query(question)
     
 def get_question(driver, gbox, qbox):
     gbox.click()
