@@ -4,7 +4,7 @@ import pandas as pd
 import csv
 import time
 # inital setup
-driver = webdriver.Firefox(executable_path="C:\\Users\\Timon\\geckodriver.exe")
+driver = webdriver.Firefox(executable_path="geckodriver.exe")
 driver.get("https://www.realmath.de/Neues/Klasse8/binome/binomevar03.php")
 df = pd.read_csv("data.csv", encoding="utf8")
 

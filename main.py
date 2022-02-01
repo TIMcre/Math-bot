@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from tqdm.auto import tqdm
 import pandas as pd
 times = int(input("how often "))
 
@@ -38,7 +39,5 @@ def task(driver, gbox, qbox, ibox, cbox):
     ibox.send_keys(a)
     cbox.click()
 
-for _ in range(times):
+for _ in tqdm(range(times)):
     task(driver, gbox, qbox, ibox, cbox)
-
-driver.quit()
