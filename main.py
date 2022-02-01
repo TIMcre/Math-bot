@@ -1,10 +1,10 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import csv
-import time
-times = int(input("how often? "))
+import pandas as pd
+times = int(input("how often "))
+
 # inital setup
-driver = webdriver.Firefox(executable_path="C:\\Users\\Timon\\geckodriver.exe")
+driver = webdriver.Firefox(executable_path="geckodriver.exe")
 driver.get("https://www.realmath.de/Neues/Klasse8/binome/binomevar03.php")
 # checkbox for alowing input
 abox = driver.find_element(By.XPATH,"/html/body/form/div[2]/div/div/div/div[3]/center/table/tbody/tr/td[1]/input")
@@ -19,12 +19,12 @@ gbox = driver.find_element(By.CSS_SELECTOR,".neuButton")
 qbox = driver.find_element(By.CSS_SELECTOR,"#idz1")
 
 def get_answer(question):
-    f = csv.reader(open("data.csv", encoding='utf-8'))
-    for row in f:
-        if question == row[0]:
-            return row[1]
-    f.close()
-
+    df = pd.read_csv("data.csv", encoding='utf8')
+    ans = df[df["question"] == question]
+    ans = ans.squeeze()
+    ans = ans["answer"]
+    return ans
+    
 def get_question(driver, gbox, qbox):
     gbox.click()
     # question field
@@ -40,3 +40,5 @@ def task(driver, gbox, qbox, ibox, cbox):
 
 for _ in range(times):
     task(driver, gbox, qbox, ibox, cbox)
+
+driver.quit()
