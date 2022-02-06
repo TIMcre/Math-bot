@@ -34,5 +34,6 @@ for i in range(500):
     print(i)
 
 driver.quit
+
 df = df.drop_duplicates()
 df.to_csv("data.csv", encoding='utf8', index= False)
