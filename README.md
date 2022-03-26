@@ -1,9 +1,10 @@
-# Math-bot
-A simpel math bot designed to automatiacally complete a math quiz on a website called realmath.
-To run the script you nedd to have the python libarys selenium, pandas and tqdm installed.
-You want to run the main.py script and answer the how many with hom many iterations you want the bot to do.
-## Didnt work ?
-If you see that the bot gave awrong answer you can run update database or manualy go into data.csv and add it at the bottom.
-The format is Question, Answer.
-I would apricate if you could inform me about this and any other issues you encounter so i can update the database for the whole repo.
+# Math bot
+A simple math bot designed to automatically complete a math quiz on a website called realmath.
+To run the script, you need to have the Selenium, Pandas and Tqdm Python libraries installed.
+Run the script main.py and answer the question how many with how many iterations you want the bot to perform.
+## Did it not work?
+If you see that the bot gave an incorrect answer, you can update the database or manually go into data.csv and add it to the end.
+The format is question, answer.
+I would appreciate it if you could let me know about this and any other issues so I can update the database for the entire repo.
+
 
