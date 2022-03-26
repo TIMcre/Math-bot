@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from tqdm.auto import tqdm
 import pandas as pd
 import time
 # inital setup
@@ -29,9 +30,9 @@ def get_data(driver, sbox, gbox):
 def add_data(data, df):
     df.loc[len(df.index)] = data    
 
-for i in range(500):
+for _ in tqdm(range(500)):
     add_data(get_data(driver, sbox, gbox), df)
-    print(i)
+    
 
 driver.quit
 
