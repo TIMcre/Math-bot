@@ -36,7 +36,7 @@ gbox = driver.find_element(By.CSS_SELECTOR,".neuButton")
 print(f"[Debug] finished loading browser")
 print(f"[Debug] gathering data")
 try:
-    for _ in tqdm(range(10)):
+    for _ in tqdm(range(500)):
         add_data(get_data(driver, sbox, gbox), df)    
 except:
     print(f"[Error] invalid input")
