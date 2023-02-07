@@ -10,7 +10,7 @@ times = 50
 # inital setup
 options = Options()
 options.binary_location= "C:\\Program Files\\Mozilla Firefox\\firefox.exe"
-driver = webdriver.Firefox(executable_path="C:\\Users\\Timon\\Downloads\\Math-bot-v.1.1\\geckodriver", options=options)
+driver = webdriver.Firefox(executable_path="geckodriver", options=options)
 
 driver.get("https://www.realmath.de/Neues/Klasse8/binome/binomevar03.php")
 # checkbox for alowing input
@@ -26,7 +26,7 @@ gbox = driver.find_element(By.CSS_SELECTOR,".neuButton")
 qbox = driver.find_element(By.CSS_SELECTOR,"#idz1")
 
 def get_answer(question):
-    df = pd.read_csv("C:\\Users\\Timon\\Downloads\\Math-bot-v.1.1\\data.csv", encoding='utf8')
+    df = pd.read_csv("data.csv", encoding='utf8')
     ans = df[df["question"] == question]
     ans = ans.squeeze()
     ans = ans["answer"]
