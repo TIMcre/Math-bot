@@ -25,9 +25,11 @@ def task(driver, gbox, qbox, ibox, cbox):
     ibox.send_keys(a)
     cbox.click()
 
-print(f"[Debug] loading browser")
-# inital setup
-driver = webdriver.Firefox(service=Service("geckodriver.exe"))
+
+if __name__ == "__main__":
+    print(f"[Debug] loading browser")
+    # inital setup
+    driver = webdriver.Firefox(service=Service("geckodriver.exe"))
 driver.get("https://www.realmath.de/Neues/Klasse8/binome/binomevar03.php")
 # checkbox for alowing input
 abox = driver.find_element(By.XPATH,"/html/body/form/div[2]/div/div/div/div[3]/center/table/tbody/tr/td[1]/input")
